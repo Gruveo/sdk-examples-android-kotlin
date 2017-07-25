@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/main_button"
+    <EditText
+        android:id="@+id/main_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Start call"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:ems="12"/>
 
+    <LinearLayout
+        android:id="@+id/main_buttons_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/main_edittext"
+        android:layout_alignStart="@+id/main_edittext"
+        android:layout_below="@+id/main_edittext"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/main_video_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Video call"/>
+
+        <Button
+            android:id="@+id/main_voice_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Voice call"/>
+
+    </LinearLayout>
 </RelativeLayout>
