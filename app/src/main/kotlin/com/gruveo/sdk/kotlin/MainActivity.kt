@@ -12,7 +12,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         main_button.setOnClickListener {
-            Gruveo.Builder(this).callCode("gruveorocks").clientId("demo").build()
+            val result = Gruveo.Builder(this).callCode("gruveorocks").clientId("demo").build()
+            when (result) {
+                Gruveo.GRV_RES_MISSING_CALL_CODE -> { }
+                Gruveo.GRV_RES_INVALID_CALL_CODE -> { }
+                Gruveo.GRV_RES_MISSING_CREDENTIALS -> { }
+                Gruveo.GRV_RES_INVALID_CREDENTIALS -> { }
+                Gruveo.GRV_RES_OFFLINE -> { }
+                else -> { }
+            }
         }
     }
 }
