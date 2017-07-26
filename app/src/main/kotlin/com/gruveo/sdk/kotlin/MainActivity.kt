@@ -58,20 +58,18 @@ class MainActivity : AppCompatActivity() {
             val duration = data.getIntExtra(GrvConstants.GRV_EXTRA_CALL_DURATION, 0)
             val messagesExchanged = data.getIntExtra(GrvConstants.GRV_EXTRA_MESSAGES_EXCHANGED, 0)
 
-            if (error != null) {
-                when (error as CallErrorType) {
-                    BUSY -> { }
-                    DIRECT_BUSY -> { }
-                    DIRECT_UNREACHABLE -> { }
-                    DIRECT_NONEXIST -> { }
-                    DIRECT_CALLING_SELF -> { }
-                    FREE_MULTIPARTY_ENDED -> { }
-                    MULTIPARTY_NOT_SUPPORTED -> { }
-                    FREE_DEMO_ENDED -> { }
-                    ROOM_LIMIT_REACHED -> { }
-                    NO_CONNECTION -> { }
-                    NONE -> { }
-                }
+            when (error as CallErrorType) {
+                BUSY -> { }
+                DIRECT_BUSY -> { }
+                DIRECT_UNREACHABLE -> { }
+                DIRECT_NONEXIST -> { }
+                DIRECT_CALLING_SELF -> { }
+                FREE_MULTIPARTY_ENDED -> { }
+                MULTIPARTY_NOT_SUPPORTED -> { }
+                FREE_DEMO_ENDED -> { }
+                ROOM_LIMIT_REACHED -> { }
+                NO_CONNECTION -> { }
+                NONE -> { }
             }
         }
     }
