@@ -27,8 +27,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initCall(videoCall: Boolean) {
+        val otherExtras = Bundle().apply {
+            putBoolean(GrvConstants.GRV_EXTRA_VIBRATE_IN_CHAT, false)
+        }
+
         val code = main_edittext.text.toString()
-        val result = Gruveo.Builder(this).callCode(code).videoCall(videoCall).clientId("demo").requestCode(REQUEST_CALL).eventsListener(eventsListener).build()
+        val result = Gruveo.Builder(this)
+                .callCode(code)
+                .videoCall(videoCall)
+                .clientId("demo")
+                .requestCode(REQUEST_CALL)
+                .otherExtras(otherExtras)
+                .eventsListener(eventsListener)
+                .build()
+
         when (result) {
             Gruveo.GRV_RES_MISSING_CALL_CODE -> { }
             Gruveo.GRV_RES_INVALID_CALL_CODE -> { }
