@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             Gruveo.GRV_RES_INVALID_CALL_CODE -> { }
             Gruveo.GRV_RES_MISSING_CREDENTIALS -> { }
             Gruveo.GRV_RES_INVALID_CREDENTIALS -> { }
+            Gruveo.GRV_RES_MISSING_SIGNER_URL -> { }
             Gruveo.GRV_RES_OFFLINE -> { }
             else -> { }
         }
