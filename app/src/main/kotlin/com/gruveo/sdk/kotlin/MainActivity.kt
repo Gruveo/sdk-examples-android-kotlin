@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CALL && resultCode == Activity.RESULT_OK && data != null) {
-            val error = data.getSerializableExtra(GrvConstants.GRV_EXTRA_CALL_ERROR)
-            val callCode = data.getStringExtra(GrvConstants.GRV_EXTRA_CALL_CODE)
-            val duration = data.getIntExtra(GrvConstants.GRV_EXTRA_CALL_DURATION, 0)
-            val messagesExchanged = data.getIntExtra(GrvConstants.GRV_EXTRA_MESSAGES_EXCHANGED, 0)
+            val error = data.getSerializableExtra(GrvConstants.GRV_RES_CALL_ERROR)
+            val callCode = data.getStringExtra(GrvConstants.GRV_RES_CALL_CODE)
+            val duration = data.getIntExtra(GrvConstants.GRV_RES_CALL_DURATION, 0)
+            val messagesExchanged = data.getIntExtra(GrvConstants.GRV_RES_MESSAGES_EXCHANGED, 0)
 
             when (error as CallErrorType) {
                 BUSY -> { }
