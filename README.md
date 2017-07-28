@@ -31,12 +31,37 @@ Add the following activity in your manifest file
 
 Usage
 -----
-You can launch the Gruveo call screen this easily
+You can launch a demo Gruveo call screen with the following snippet
 ```
-Gruveo.Builder(this)
-    .callCode("gruveorocks")
-    .clientId("demo")
-    .build()
+private val SIGNER_URL = "https://api-demo.gruveo.com/signer"
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    ...    
+    Gruveo.Builder(this)
+        .callCode("gruveorocks")
+        .clientId("demo")
+        .eventsListener(eventsListener)
+        .build()
+}
+    
+private val eventsListener = object : Gruveo.EventsListener {
+    override fun tokenReceived(token: String) {
+        Gruveo.tokenSigned(signToken(token))
+    }
+    ...
+}
+
+private fun signToken(token: String): String {
+    val body = RequestBody.create(MediaType.parse("text/plain"), token)
+    val request = Request.Builder()
+            .url(SIGNER_URL)
+            .post(body)
+            .build()
+
+    val response = OkHttpClient().newCall(request).execute()
+    return response.body()?.string() ?: ""
+}
+    
 ```
 
 For more advanced configuration and options visit the <a href="https://github.com/Gruveo/sdk-examples-android-kotlin/blob/master/app/src/main/kotlin/com/gruveo/sdk/kotlin/MainActivity.kt">sample file.</a></br>
