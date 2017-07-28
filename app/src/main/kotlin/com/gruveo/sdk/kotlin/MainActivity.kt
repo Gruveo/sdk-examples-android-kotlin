@@ -9,9 +9,14 @@ import com.gruveo.sdk.model.CallErrorType
 import com.gruveo.sdk.model.CallErrorType.*
 import com.gruveo.sdk.model.GrvConstants
 import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.MediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_CALL = 1
+    private val SIGNER_URL = "https://api-demo.gruveo.com/signer"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,13 +51,16 @@ class MainActivity : AppCompatActivity() {
             Gruveo.GRV_RES_INVALID_CALL_CODE -> { }
             Gruveo.GRV_RES_MISSING_CREDENTIALS -> { }
             Gruveo.GRV_RES_INVALID_CREDENTIALS -> { }
-            Gruveo.GRV_RES_MISSING_SIGNER_URL -> { }
             Gruveo.GRV_RES_OFFLINE -> { }
             else -> { }
         }
     }
 
     private val eventsListener = object : Gruveo.EventsListener {
+        override fun tokenReceived(token: String) {
+            Gruveo.tokenSigned(signToken(token))
+        }
+
         override fun callInit(videoCall: Boolean, code: String) {
         }
 
@@ -61,6 +69,17 @@ class MainActivity : AppCompatActivity() {
 
         override fun callEnd(data: Intent, isInForeground: Boolean) {
         }
+    }
+
+    private fun signToken(token: String): String {
+        val body = RequestBody.create(MediaType.parse("text/plain"), token)
+        val request = Request.Builder()
+                .url(SIGNER_URL)
+                .post(body)
+                .build()
+
+        val response = OkHttpClient().newCall(request).execute()
+        return response.body()?.string() ?: ""
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
