@@ -1,6 +1,8 @@
 Gruveo SDK kotlin example
 =====
 
+[![Release](https://jitpack.io/v/org.bitbucket.gruveo/gruveo-sdk-android.svg)](https://jitpack.io/#org.bitbucket.gruveo/gruveo-sdk-android)
+
 With the Gruveo SDK, you can add video and voice calling support to your Android app, quickly. The SDK provides a ready-to-use, white-label activity with a video and voice calling interface that you can use right away!
 
 Setup
@@ -17,7 +19,7 @@ allprojects {
 
 Add Gruveo SDK in your module build.gradle dependencies
 ```
-compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.2.0'
+compile 'org.bitbucket.gruveo:gruveo-sdk-android:{latest version}'
 ```
 
 Add the following activity in your manifest file
