@@ -39,7 +39,8 @@ Gruveo.Builder(this)
     .build()
 ```
 
-For more advanced configuration and options visit the <a href="https://github.com/Gruveo/sdk-examples-android-kotlin/blob/master/app/src/main/kotlin/com/gruveo/sdk/kotlin/MainActivity.kt">sample file.</a>
+For more advanced configuration and options visit the <a href="https://github.com/Gruveo/sdk-examples-android-kotlin/blob/master/app/src/main/kotlin/com/gruveo/sdk/kotlin/MainActivity.kt">sample file.</a></br>
+For production API credentials visit <a href="https://about.gruveo.com/developers/api-credentials">our website.</a>
 
 Requirements
 ------------
