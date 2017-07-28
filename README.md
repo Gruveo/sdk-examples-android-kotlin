@@ -45,8 +45,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
     
 private val eventsListener = object : Gruveo.EventsListener {
-    override fun tokenReceived(token: String) {
-        Gruveo.tokenSigned(signToken(token))
+    override fun requestToSignApiAuthToken(token: String) {
+        Gruveo.authorize(signToken(token))
     }
     ...
 }
