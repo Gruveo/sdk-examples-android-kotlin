@@ -3,11 +3,12 @@ Gruveo SDK kotlin example
 
 [![Release](https://jitpack.io/v/org.bitbucket.gruveo/gruveo-sdk-android.svg)](https://jitpack.io/#org.bitbucket.gruveo/gruveo-sdk-android)
 
-With the Gruveo SDK, you can add video and voice calling support to your Android app, quickly. The SDK provides a ready-to-use, white-label activity with a video and voice calling interface that you can use right away!
+With the Gruveo SDK, you can add video and voice calling support to your Android app, quickly. The SDK provides a ready-to-use, white-label activity with a video and voice calling interface that you can use right away.
 
 Setup
 -----
-Include Jitpack by adding the following in your project build.gradle
+Include JitPack by adding the following in your project build.gradle:
+
 ```
 allprojects {
     repositories {
@@ -17,12 +18,14 @@ allprojects {
 }
 ```
 
-Add Gruveo SDK in your module build.gradle dependencies
+Add Gruveo SDK in your module build.gradle dependencies:
+
 ```
 compile 'org.bitbucket.gruveo:gruveo-sdk-android:{latest version}'
 ```
 
-Add the following activity in your manifest file
+Add the following activity in your manifest file:
+
 ```
 <activity
     android:name="com.gruveo.sdk.ui.CallActivity"
@@ -31,7 +34,8 @@ Add the following activity in your manifest file
 
 Usage
 -----
-You can launch a demo Gruveo call screen with the following snippet
+The snippet below showcases launching a Gruveo call screen using the `demo` client ID that limits all calls to 5 minutes. The snippet uses a token signing endpoint provided by us; you will need your own server-side signing implementation in production.
+
 ```
 private val SIGNER_URL = "https://api-demo.gruveo.com/signer"
 
@@ -64,13 +68,16 @@ private fun signToken(token: String): String {
     
 ```
 
-For more advanced configuration and options visit the <a href="https://github.com/Gruveo/sdk-examples-android-kotlin/blob/master/app/src/main/kotlin/com/gruveo/sdk/kotlin/MainActivity.kt">sample file.</a></br>
-For production API credentials visit <a href="https://about.gruveo.com/developers/api-credentials">our website.</a>
+For more advanced configuration and options, check the <a href="https://github.com/Gruveo/sdk-examples-android-kotlin/blob/master/app/src/main/kotlin/com/gruveo/sdk/kotlin/MainActivity.kt">sample file</a>.
+
+To request production API credentials, <a href="https://about.gruveo.com/developers/api-credentials/">get in touch</a>.
 
 Requirements
 ------------
-At least Android 4.2.x (API 17).</br>
+At least Android 4.2.x (API 17).
+
 The SDK manifest file contains the following features and permisions, so you <b>do not</b> have to add them in your project.
+
 ```
 <uses-feature
     android:name="android.hardware.camera"
@@ -101,7 +108,7 @@ License
 ```
 MIT License
 
-Copyright (c) 2017 Gruveo Ltd.
+Copyright (c) 2017 Gruveo, s.r.o.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
