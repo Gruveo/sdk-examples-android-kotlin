@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import com.gruveo.sdk.Gruveo
 import com.gruveo.sdk.model.CallErrorType
 import com.gruveo.sdk.model.CallErrorType.*
-import com.gruveo.sdk.model.GrvConstants
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initCall(videoCall: Boolean) {
         val otherExtras = Bundle().apply {
-            putBoolean(GrvConstants.GRV_EXTRA_VIBRATE_IN_CHAT, false)
+            putBoolean(Gruveo.GRV_EXTRA_VIBRATE_IN_CHAT, false)
         }
 
         val code = main_edittext.text.toString()
@@ -47,11 +46,10 @@ class MainActivity : AppCompatActivity() {
                 .build()
 
         when (result) {
-            Gruveo.GRV_RES_MISSING_CALL_CODE -> { }
-            Gruveo.GRV_RES_INVALID_CALL_CODE -> { }
-            Gruveo.GRV_RES_MISSING_CREDENTIALS -> { }
-            Gruveo.GRV_RES_INVALID_CREDENTIALS -> { }
-            Gruveo.GRV_RES_OFFLINE -> { }
+            Gruveo.GRV_INIT_MISSING_CALL_CODE -> { }
+            Gruveo.GRV_INIT_INVALID_CALL_CODE -> { }
+            Gruveo.GRV_INIT_MISSING_CLIENT_ID -> { }
+            Gruveo.GRV_INIT_OFFLINE -> { }
             else -> { }
         }
     }
@@ -85,10 +83,10 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CALL && resultCode == Activity.RESULT_OK && data != null) {
-            val error = data.getSerializableExtra(GrvConstants.GRV_RES_CALL_ERROR)
-            val callCode = data.getStringExtra(GrvConstants.GRV_RES_CALL_CODE)
-            val duration = data.getIntExtra(GrvConstants.GRV_RES_CALL_DURATION, 0)
-            val messagesExchanged = data.getIntExtra(GrvConstants.GRV_RES_MESSAGES_EXCHANGED, 0)
+            val error = data.getSerializableExtra(Gruveo.GRV_RES_CALL_ERROR)
+            val callCode = data.getStringExtra(Gruveo.GRV_RES_CALL_CODE)
+            val duration = data.getIntExtra(Gruveo.GRV_RES_CALL_DURATION, 0)
+            val messagesExchanged = data.getIntExtra(Gruveo.GRV_RES_MESSAGES_EXCHANGED, 0)
 
             when (error as CallErrorType) {
                 BUSY -> { }
@@ -101,6 +99,7 @@ class MainActivity : AppCompatActivity() {
                 FREE_DEMO_ENDED -> { }
                 ROOM_LIMIT_REACHED -> { }
                 NO_CONNECTION -> { }
+                INVALID_CREDENTIALS -> { }
                 NONE -> { }
             }
         }
