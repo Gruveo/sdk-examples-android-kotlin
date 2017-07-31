@@ -85,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_CALL && resultCode == Activity.RESULT_OK && data != null) {
             val error = data.getSerializableExtra(Gruveo.GRV_RES_CALL_ERROR)
             val callCode = data.getStringExtra(Gruveo.GRV_RES_CALL_CODE)
+            val leftMessageTo = data.getStringExtra(Gruveo.GRV_RES_LEFT_MESSAGE_TO)
             val duration = data.getIntExtra(Gruveo.GRV_RES_CALL_DURATION, 0)
             val messagesExchanged = data.getIntExtra(Gruveo.GRV_RES_MESSAGES_EXCHANGED, 0)
 
