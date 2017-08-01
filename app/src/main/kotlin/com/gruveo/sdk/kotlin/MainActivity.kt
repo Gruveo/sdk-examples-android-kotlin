@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val eventsListener = object : Gruveo.EventsListener {
-        override fun requestToSignApiAuthToken(token: String) {
-            Gruveo.authorize(signToken(token))
+        override fun callInit(videoCall: Boolean, code: String) {
         }
 
-        override fun callInit(videoCall: Boolean, code: String) {
+        override fun requestToSignApiAuthToken(token: String) {
+            Gruveo.authorize(signToken(token))
         }
 
         override fun callEstablished(code: String) {
