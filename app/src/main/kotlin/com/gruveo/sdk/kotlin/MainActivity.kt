@@ -94,14 +94,11 @@ class MainActivity : AppCompatActivity() {
                 DIRECT_BUSY -> { }
                 DIRECT_UNREACHABLE -> { }
                 DIRECT_NONEXIST -> { }
-                DIRECT_CALLING_SELF -> { }
-                FREE_MULTIPARTY_ENDED -> { }
-                MULTIPARTY_NOT_SUPPORTED -> { }
                 FREE_DEMO_ENDED -> { }
                 ROOM_LIMIT_REACHED -> { }
                 NO_CONNECTION -> { }
                 INVALID_CREDENTIALS -> { }
-                NONE -> { }
+                else -> { }     // no error
             }
         }
     }
