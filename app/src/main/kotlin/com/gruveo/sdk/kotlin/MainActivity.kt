@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun callEnd(data: Intent, isInForeground: Boolean) {
+            parseCallExtras(data)
         }
     }
 
@@ -83,23 +84,27 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CALL && resultCode == Activity.RESULT_OK && data != null) {
-            val error = data.getSerializableExtra(Gruveo.GRV_RES_CALL_ERROR)
-            val callCode = data.getStringExtra(Gruveo.GRV_RES_CALL_CODE)
-            val leftMessageTo = data.getStringExtra(Gruveo.GRV_RES_LEFT_MESSAGE_TO)
-            val duration = data.getIntExtra(Gruveo.GRV_RES_CALL_DURATION, 0)
-            val messagesExchanged = data.getIntExtra(Gruveo.GRV_RES_MESSAGES_EXCHANGED, 0)
+            parseCallExtras(data)
+        }
+    }
 
-            when (error as CallErrorType) {
-                BUSY -> { }
-                DIRECT_BUSY -> { }
-                DIRECT_UNREACHABLE -> { }
-                DIRECT_NONEXIST -> { }
-                FREE_DEMO_ENDED -> { }
-                ROOM_LIMIT_REACHED -> { }
-                NO_CONNECTION -> { }
-                INVALID_CREDENTIALS -> { }
-                else -> { }     // no error
-            }
+    private fun parseCallExtras(data: Intent) {
+        val error = data.getSerializableExtra(Gruveo.GRV_RES_CALL_ERROR)
+        val callCode = data.getStringExtra(Gruveo.GRV_RES_CALL_CODE)
+        val leftMessageTo = data.getStringExtra(Gruveo.GRV_RES_LEFT_MESSAGE_TO)
+        val duration = data.getIntExtra(Gruveo.GRV_RES_CALL_DURATION, 0)
+        val messagesExchanged = data.getIntExtra(Gruveo.GRV_RES_MESSAGES_SENT, 0)
+
+        when (error as CallErrorType) {
+            BUSY -> { }
+            DIRECT_BUSY -> { }
+            DIRECT_UNREACHABLE -> { }
+            DIRECT_NONEXIST -> { }
+            FREE_DEMO_ENDED -> { }
+            ROOM_LIMIT_REACHED -> { }
+            NO_CONNECTION -> { }
+            INVALID_CREDENTIALS -> { }
+            else -> { }     // no error
         }
     }
 }
