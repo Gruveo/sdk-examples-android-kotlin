@@ -97,9 +97,9 @@ class MainActivity : AppCompatActivity() {
 
         when (error as CallErrorType) {
             BUSY -> { }
-            DIRECT_BUSY -> { }
-            DIRECT_UNREACHABLE -> { }
-            DIRECT_NONEXIST -> { }
+            HANDLE_BUSY -> { }
+            HANDLE_UNREACHABLE -> { }
+            HANDLE_NONEXIST -> { }
             FREE_DEMO_ENDED -> { }
             ROOM_LIMIT_REACHED -> { }
             NO_CONNECTION -> { }

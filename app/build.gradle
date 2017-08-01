@@ -41,6 +41,6 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.2.6'
+    compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.2.8'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
