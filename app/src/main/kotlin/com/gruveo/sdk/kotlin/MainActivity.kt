@@ -68,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         override fun callEnd(data: Intent, isInForeground: Boolean) {
             parseCallExtras(data)
         }
+
+        override fun recordingStateChanged(us: Boolean, them: Boolean) {
+        }
     }
 
     private fun signToken(token: String): String {
