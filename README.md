@@ -76,6 +76,8 @@ Requirements
 ------------
 At least Android 4.2.x (API 17).
 
+The Manifest.permission.RECORD_AUDIO permission is mandatory for making calls, Manifest.permission.CAMERA is needed only for video calls. However, it is all handled by the SDK, so you do not have to bother with it.
+
 The SDK manifest file contains the following features and permisions, so you <b>do not</b> have to add them in your project.
 
 ```
