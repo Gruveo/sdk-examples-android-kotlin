@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 0.3.0 *(2017-08-08)*
+----------------------------
+
+ * Updated some token signing related code
+ * Renamed some interface functions + cleanup
+ 
 Version 0.2.2 *(2017-07-28)*
 ----------------------------
 
