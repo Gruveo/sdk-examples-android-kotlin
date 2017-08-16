@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 0.3.5 *(2017-08-16)*
+----------------------------
+
+ * Miscellaneous smaller improvements
+
 Version 0.3.2 *(2017-08-08)*
 ----------------------------
 
