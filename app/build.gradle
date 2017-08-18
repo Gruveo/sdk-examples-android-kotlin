@@ -29,6 +29,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -42,5 +43,6 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.3.5'
+    compile 'com.android.support:multidex:1.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
