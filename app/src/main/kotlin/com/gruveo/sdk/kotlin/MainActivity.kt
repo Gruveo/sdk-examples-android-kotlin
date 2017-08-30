@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
             ROOM_LIMIT_REACHED -> { }
             NO_CONNECTION -> { }
             INVALID_CREDENTIALS -> { }
+            UNSUPPORTED_PROTOCOL_VERSION -> { }
             else -> { }     // no error
         }
     }
