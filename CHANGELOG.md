@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 0.3.9 *(2017-08-30)*
+----------------------------
+
+ * Small updates to "Missing audio permission" and "Outdated protocol version" dialogs
+
 Version 0.3.5 *(2017-08-16)*
 ----------------------------
 
