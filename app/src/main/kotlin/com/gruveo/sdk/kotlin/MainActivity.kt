@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     private fun initCall(videoCall: Boolean) {
         val otherExtras = Bundle().apply {
             putBoolean(Gruveo.GRV_EXTRA_VIBRATE_IN_CHAT, false)
+            putBoolean(Gruveo.GRV_EXTRA_DISABLE_CHAT, false)
         }
 
         val code = main_edittext.text.toString()
