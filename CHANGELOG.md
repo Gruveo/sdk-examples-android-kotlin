@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 0.4.2 *(2017-10-27)*
+----------------------------
+
+ * Minor bug fixes
+
+Version 0.4.0 *(2017-10-20)*
+----------------------------
+
+ * Added call reconnection
+ * Added a new extra Gruveo.GRV_EXTRA_DISABLE_CHAT to fully disable chat
+
 Version 0.3.9 *(2017-08-30)*
 ----------------------------
 
@@ -21,7 +32,7 @@ Version 0.3.0 *(2017-08-08)*
 
  * Updated some token signing related code
  * Renamed some interface functions + cleanup
- 
+
 Version 0.2.2 *(2017-07-28)*
 ----------------------------
 
