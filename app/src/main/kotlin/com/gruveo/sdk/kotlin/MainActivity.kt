@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.gruveo.sdk.Gruveo
-import com.gruveo.sdk.model.CallErrorType
-import com.gruveo.sdk.model.CallErrorType.*
+import com.gruveo.sdk.model.CallEndReason
+import com.gruveo.sdk.model.CallEndReason.*
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -93,15 +93,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseCallExtras(data: Intent) {
-        val error = data.getSerializableExtra(Gruveo.GRV_RES_CALL_ERROR)
+        val endReason = data.getSerializableExtra(Gruveo.GRV_RES_CALL_END_REASON)
         val callCode = data.getStringExtra(Gruveo.GRV_RES_CALL_CODE)
         val leftMessageTo = data.getStringExtra(Gruveo.GRV_RES_LEFT_MESSAGE_TO)
         val duration = data.getIntExtra(Gruveo.GRV_RES_CALL_DURATION, 0)
         val messagesSent = data.getIntExtra(Gruveo.GRV_RES_MESSAGES_SENT, 0)
 
-        when (error as CallErrorType) {
+        when (endReason as CallEndReason) {
             BUSY -> { }
-            HANDLE_BUSY -> { }
+            HANDLE_BUSY -> {}
             HANDLE_UNREACHABLE -> { }
             HANDLE_NONEXIST -> { }
             FREE_DEMO_ENDED -> { }
@@ -109,7 +109,8 @@ class MainActivity : AppCompatActivity() {
             NO_CONNECTION -> { }
             INVALID_CREDENTIALS -> { }
             UNSUPPORTED_PROTOCOL_VERSION -> { }
-            else -> { }     // no error
+            OTHER_PARTY -> { }
+            else -> { }     // USER - we hanged up the call
         }
     }
 }
