@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 0.5.1 *(2017-11-06)*
+----------------------------
+
+ * Rename CallErrorType to CallEndReason, let's the SDK determine which side hanged up
+
 Version 0.4.2 *(2017-10-27)*
 ----------------------------
 
