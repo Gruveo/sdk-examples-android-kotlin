@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 0.5.9 *(2018-07-16)*
+----------------------------
+
+ * Updated some libraries
+ * Added a recordingFilename(filename) event callback
+
 Version 0.5.6 *(2018-01-22)*
 ----------------------------
 

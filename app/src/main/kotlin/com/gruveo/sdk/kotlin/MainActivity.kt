@@ -72,6 +72,9 @@ class MainActivity : AppCompatActivity() {
 
         override fun recordingStateChanged(us: Boolean, them: Boolean) {
         }
+
+        override fun recordingFilename(filename: String) {
+        }
     }
 
     private fun signToken(token: String): String {
