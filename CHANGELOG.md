@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 0.5.10 *(2018-08-15)*
+----------------------------
+
+ * Added a new parameter for specifying the recording layout
+
 Version 0.5.9 *(2018-07-16)*
 ----------------------------
 
