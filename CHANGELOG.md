@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 0.5.11 *(2018-08-15)*
+----------------------------
+
+ * Added a helper function for toggling recording without specifying the layout
+
 Version 0.5.10 *(2018-08-15)*
 ----------------------------
 
