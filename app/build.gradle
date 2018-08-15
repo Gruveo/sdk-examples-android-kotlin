@@ -43,7 +43,7 @@ dependencies {
     compile ('com.android.support:appcompat-v7:27.0.2') {
         exclude group: 'com.android.support', module: 'cardview-v7'
     }
-    compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.5.10'
+    compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.5.11'
     compile 'com.android.support:multidex:1.0.3'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
