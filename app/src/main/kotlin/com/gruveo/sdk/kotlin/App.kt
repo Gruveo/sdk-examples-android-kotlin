@@ -1,5 +1,5 @@
 package com.gruveo.sdk.kotlin
 
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 
 class App : MultiDexApplication()

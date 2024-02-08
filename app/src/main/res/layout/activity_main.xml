@@ -29,6 +29,7 @@
             android:layout_weight="1"
             android:text="Video call"/>
 
+
         <Button
             android:id="@+id/main_voice_button"
             android:layout_width="wrap_content"
@@ -37,4 +38,20 @@
             android:text="Voice call"/>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/window_video_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video call in window"
+        android:layout_below="@+id/main_buttons_holder"
+        android:layout_alignEnd="@+id/main_edittext"
+        android:layout_alignStart="@+id/main_edittext" />
+
+    <FrameLayout
+        android:id="@+id/container_frg"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>

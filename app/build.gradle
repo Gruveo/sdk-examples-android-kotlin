@@ -2,21 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-buildscript {
-    ext.kotlin_version = '1.2.60'
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
-    }
-}
-
 android {
-    compileSdkVersion 27
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -24,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId "com.gruveo.sdk.kotlin"
-        minSdkVersion 17
-        targetSdkVersion 27
+        minSdkVersion 19
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -40,10 +27,8 @@ android {
 }
 
 dependencies {
-    compile ('com.android.support:appcompat-v7:27.0.2') {
-        exclude group: 'com.android.support', module: 'cardview-v7'
-    }
-    compile 'org.bitbucket.gruveo:gruveo-sdk-android:0.5.11'
-    compile 'com.android.support:multidex:1.0.3'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'org.bitbucket.gruveo:gruveo-sdk-android:0.8.4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

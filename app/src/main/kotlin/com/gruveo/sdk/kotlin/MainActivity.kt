@@ -3,7 +3,7 @@ package com.gruveo.sdk.kotlin
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.gruveo.sdk.Gruveo
 import com.gruveo.sdk.model.CallEndReason
 import com.gruveo.sdk.model.CallEndReason.*
@@ -13,38 +13,47 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody
 
+private const val REQUEST_CALL = 1
+private const val SIGNER_URL = "https://api-demo.gruveo.com/signer"
 class MainActivity : AppCompatActivity() {
-    private val REQUEST_CALL = 1
-    private val SIGNER_URL = "https://api-demo.gruveo.com/signer"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         main_video_button.setOnClickListener {
-            initCall(true)
+            initCall(videoCall = true, windowCall = false)
         }
 
         main_voice_button.setOnClickListener {
-            initCall(false)
+            initCall(videoCall = false, windowCall = false)
+        }
+
+        window_video_button.setOnClickListener {
+            initCall(videoCall = true, windowCall = true)
         }
     }
 
-    private fun initCall(videoCall: Boolean) {
+    private fun initCall(videoCall: Boolean, windowCall: Boolean) {
         val otherExtras = Bundle().apply {
             putBoolean(Gruveo.GRV_EXTRA_VIBRATE_IN_CHAT, false)
             putBoolean(Gruveo.GRV_EXTRA_DISABLE_CHAT, false)
         }
 
         val code = main_edittext.text.toString()
-        val result = Gruveo.Builder(this)
+        val builder = Gruveo.Builder(this)
                 .callCode(code)
                 .videoCall(videoCall)
                 .clientId("demo")
                 .requestCode(REQUEST_CALL)
                 .otherExtras(otherExtras)
                 .eventsListener(eventsListener)
-                .build()
+
+        if (windowCall) {
+            builder.viewContainer(R.id.container_frg)
+        }
+
+        val result = builder.build()
 
         when (result) {
             Gruveo.GRV_INIT_MISSING_CALL_CODE -> { }
