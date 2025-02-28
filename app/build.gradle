@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -11,8 +11,8 @@ android {
 
     defaultConfig {
         applicationId "com.gruveo.sdk.kotlin"
-        minSdkVersion 19
-        targetSdkVersion 31
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -24,11 +24,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation 'org.bitbucket.gruveo:gruveo-sdk-android:0.8.4'
+    implementation 'org.bitbucket.gruveo:gruveo-sdk-android:0.8.6'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
